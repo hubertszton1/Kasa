@@ -132,8 +132,7 @@ class App(tk.Tk):
 
         self.current_date_lbl = tk.Label(master=self, text=date_to_display, relief=tk.RIDGE, borderwidth=2, font=self.main_font, width=15, height=2)
         self.current_date_lbl.place(relx=0.879, rely=0.0444, anchor=tk.CENTER)
-        self.daily_income_lbl = tk.Label(master=upper_center_frame, text="", relief=tk.RIDGE, borderwidth=2, width=13,
-                                        font=self.main_font)
+        self.daily_income_lbl = tk.Label(master=upper_center_frame, text="", relief=tk.RIDGE, borderwidth=2, width=13, font=self.main_font)
         self.daily_income_lbl.grid(row=1, column=0, sticky="sw")
 
         self.in_month_lbl = tk.Label(master=upper_center_frame, text="", relief=tk.RIDGE, borderwidth=2, width=13, font=self.main_font)
