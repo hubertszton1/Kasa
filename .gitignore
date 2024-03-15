@@ -3,3 +3,4 @@
 .DS_Store
 setup.py
 database.db
+env
