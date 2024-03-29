@@ -96,7 +96,7 @@ class App(tk.Tk):
         self.upper_delete_list = tk.Listbox(upper_left_frame, height=14, width=3, font=self.main_font,
                                             yscrollcommand=self.upper_vertical_scroll.set,
                                             borderwidth=2, relief=tk.GROOVE, justify=tk.CENTER, fg="red",
-                                            highlightthickness=0, selectbackground="SystemButtonFace",
+                                            highlightthickness=0, selectbackground="white",
                                             selectforeground="white", state=widget_state)
         self.upper_delete_list.grid(row=1, column=0, sticky="NSEW")
         self.sale_list = tk.Listbox(upper_left_frame, height=14, width=10, relief=tk.GROOVE, borderwidth=2,
@@ -114,7 +114,7 @@ class App(tk.Tk):
         self.lower_delete_list = tk.Listbox(lower_left_frame, height=10, width=3, borderwidth=2, font=self.main_font,
                                             yscrollcommand=self.upper_vertical_scroll.set,
                                             relief=tk.GROOVE, justify=tk.CENTER, fg="red",
-                                            highlightthickness=0, selectbackground="SystemButtonFace",
+                                            highlightthickness=0, selectbackground="white",
                                             selectforeground="white", state=widget_state)
         self.lower_delete_list.grid(row=1, column=0, sticky="NSEW")
         self.value_list = tk.Listbox(lower_left_frame, height=10, width=10, relief=tk.GROOVE, borderwidth=2, yscrollcommand=self.lower_vertical_scroll.set, font=self.main_font)
