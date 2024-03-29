@@ -249,7 +249,7 @@ class App(tk.Tk):
                 return
             insert_index = self.sale_list.size()
             self.upper_delete_list.insert(insert_index, "❌")
-            self.sale_list.insert(insert_index, sale)
+            self.sale_list.insert(insert_index, "{:.2f}".format(sale))
             self.description_list.insert(insert_index, description)
             self.upper_hour_list.insert(insert_index, time)
 
@@ -290,7 +290,7 @@ class App(tk.Tk):
 
             insert_index = self.operation_list.size()
             self.lower_delete_list.insert(insert_index, "❌")
-            self.value_list.insert(insert_index, value)
+            self.value_list.insert(insert_index, "{:.2f}".format(value))
             self.operation_list.insert(insert_index, operation)
             self.comment_list.insert(insert_index, comment)
             self.lower_hour_list.insert(insert_index, time)
@@ -311,7 +311,7 @@ class App(tk.Tk):
                                 WHERE date = (?) """, (self.date,))
         self.daily_income = self.cursor.fetchone()[0]
         self.daily_income = round(self.daily_income, 2)
-        self.daily_income_lbl['text'] = self.daily_income
+        self.daily_income_lbl['text'] = "{:.2f}".format(self.daily_income)
 
     def update_in_month(self):
         current_month = str(self.date)[:-2] + '%'
@@ -319,7 +319,7 @@ class App(tk.Tk):
                                 WHERE date LIKE (?) AND date <= (?) """, (current_month, self.date))
         self.in_month = self.cursor.fetchone()[0]
         self.in_month = round(self.in_month, 2)
-        self.in_month_lbl['text'] = self.in_month
+        self.in_month_lbl['text'] = "{:.2f}".format(self.in_month)
 
     def update_money_box(self):
         self.cursor.execute(""" SELECT IFNULL(SUM(sale), 0) FROM sales 
@@ -332,7 +332,7 @@ class App(tk.Tk):
 
         self.money_box = sales_balance + operations_balance
         self.money_box = round(self.money_box, 2)
-        self.money_box_lbl['text'] = self.money_box
+        self.money_box_lbl['text'] = "{:.2f}".format(self.money_box)
 
     def show_message(self, title, message):
         messagebox.showerror(title, message)
