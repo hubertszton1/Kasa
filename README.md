@@ -5,7 +5,7 @@
  ### Przewodnik po aplikacji
  ![Image Link](https://github.com/hubertszton1/Kasa/blob/main/screenshots/Slide1.jpg)
  1. Górny panel okna odpowiada za wprowadzanie i przeglądanie sprzedaży w danym dniu.
- 2. Dolny panel okna odpowiada za wprowadzanie i przęglądanie operacji na kasie np. KW - kasa wydała lub KP - kasa przyjeła
+ 2. Dolny panel okna odpowiada za wprowadzanie i przęglądanie operacji na kasie np. KW - kasa wydała lub KP - kasa przyjęła.
  ___
  ![Image Link](https://github.com/hubertszton1/Kasa/blob/main/screenshots/Slide2.jpg)
  W prawym górnym roku okna znajduje się przycisk otwierajacy kalendarz. Pozwala on wybrać dzień do którego chcemy przejść.
