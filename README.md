@@ -8,7 +8,7 @@
  2. Dolny panel okna odpowiada za wprowadzanie i przęglądanie operacji na kasie np. KW - kasa wydała lub KP - kasa przyjeła
  ___
  ![Image Link](https://github.com/hubertszton1/Kasa/blob/main/screenshots/Slide2.jpg)
- W prawym górnym roku okna znajduje się przycisk otwierajacy kalendarz. Pozwala on wybrać dzień do którego chcemy przejść.
+ W prawym górnym rogu okna znajduje się przycisk otwierajacy kalendarz. Pozwala on wybrać dzień do którego chcemy przejść.
  ___
   ![Image Link](https://github.com/hubertszton1/Kasa/blob/main/screenshots/Slide3.jpg)
   1. Etykieta w prawym górnym rogu okna wyświetla datę dnia który aktualnie przeglądamy.
@@ -16,7 +16,7 @@
   3. Jeżeli przeglądamy dzień z przeszłości wprowadzenie sprzedaży lub operacji na kasie nie jest możliwe (wyłączony formularz dolny i górny).
   ___
  ![Image Link](https://github.com/hubertszton1/Kasa/blob/main/screenshots/Slide4.jpg)
- W prawym górnym roku okna znajduje się zielony przycisk do wygenerowania pliku .xlsx. Po kliknięciu w niego otworzy się okno dialogowe, w którym należy wybrać lokalizację i nazwę pliku (domyślnie nazwą pliku jest data aktualnie przeglądanego dnia).
+ W prawym górnym rogu okna znajduje się zielony przycisk do wygenerowania pliku .xlsx. Po kliknięciu w niego otworzy się okno dialogowe, w którym należy wybrać lokalizację i nazwę pliku (domyślnie nazwą pliku jest data aktualnie przeglądanego dnia).
  ___
  ![Image Link](https://github.com/hubertszton1/Kasa/blob/main/screenshots/Slide5.jpg)
  Wygenerowany plik .xlsx jest sformatowany tak aby dane były przejrzyste i czytelne.
