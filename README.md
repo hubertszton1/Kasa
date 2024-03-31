@@ -27,5 +27,5 @@
  2. Otwórz plik **_.dmg_** i przeciągnij aplikację **_Kasa_** do folderu **_Applications_**.
  3. Uruchom program **_Kasa_**.
  4. Jeżeli wyskoczy komunikat, że program pochodzi od niezidentyfikowanego autora otwórz **_Preferencje systemowe_**, następnie **_Ochrona i prywatność_** i przejdź do zakładki **_Ogólne_**.
- 5. Na dole okienka powinna znaleść się informacja o zablokowaniu programu **_Kasa_**. Kliknij w przycisk **_Otwórz mimo to_** znajdujący się obok komunikatu.
+ 5. Na dole okienka powinna znaleźć się informacja o zablokowaniu programu **_Kasa_**. Kliknij w przycisk **_Otwórz mimo to_** znajdujący się obok komunikatu.
  6. Podczas ponownego uruchomienia programu **_Kasa_** powinno pojawić się zapytanie _czy na pewno chcesz otworzyć program_. Kliknij przycisk **_Otwórz_**.
