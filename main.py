@@ -8,8 +8,9 @@ from tkinter import ttk, messagebox, font, filedialog
 from tkcalendar import *
 import xlsxwriter
 
-from datetime import datetime   
+from datetime import datetime
 from datetime import date as dt
+
 
 class App(tk.Tk):
     def __init__(self, date, x, y):
@@ -19,7 +20,7 @@ class App(tk.Tk):
         self.in_month = None
         self.date = date
         self.today = str(dt.today())
-        self.geometry(f"+{x}+{y}")           
+        self.geometry(f"+{x}+{y}")
         self.main_font = font.Font(family="Arial", size=12)
         self.title("Kasa")
         self.resizable(height=False, width=False)
@@ -54,44 +55,67 @@ class App(tk.Tk):
         upper_left_frame.grid(row=0, column=0, sticky="nsew", padx=20, pady=20)
         upper_center_frame = tk.Frame(master=self, height=200, width=130)
         upper_center_frame.grid(row=0, column=1, sticky="sw", pady=20)
-        upper_right_frame = tk.Frame(master=self, height=350, width=400, relief=tk.RIDGE, borderwidth=3)
-        upper_right_frame.grid(row=0, column=2, sticky="sw", ipady=10, ipadx=10, padx=20, pady=20)
+        upper_right_frame = tk.Frame(
+            master=self, height=350, width=400, relief=tk.RIDGE, borderwidth=3)
+        upper_right_frame.grid(row=0, column=2, sticky="sw",
+                               ipady=10, ipadx=10, padx=20, pady=20)
         lower_left_frame = tk.Frame(master=self, height=200, width=550)
         lower_left_frame.grid(row=2, column=0, pady=20, sticky="swn", padx=20)
         lower_center_frame = tk.Frame(master=self, height=200, width=50)
         lower_center_frame.grid(row=2, column=1, pady=20, sticky="sw")
-        lower_right_frame = tk.Frame(master=self, height=200, width=400, relief=tk.RIDGE, borderwidth=3)
-        lower_right_frame.grid(row=2, column=2, pady=20, padx=20, sticky="sw", ipady=10, ipadx=10)
+        lower_right_frame = tk.Frame(
+            master=self, height=200, width=400, relief=tk.RIDGE, borderwidth=3)
+        lower_right_frame.grid(row=2, column=2, pady=20,
+                               padx=20, sticky="sw", ipady=10, ipadx=10)
         buttons_frame = tk.Frame(master=self, width=60)
         buttons_frame.grid(row=0, column=4, rowspan=3, sticky="ns")
-        ttk.Separator(master=self, orient='vertical').grid(row=0, column=3, rowspan=3, sticky="ns")
-        ttk.Separator(master=self, orient='horizontal').grid(row=1, column=0, sticky="ew", columnspan=3)
+        ttk.Separator(master=self, orient='vertical').grid(
+            row=0, column=3, rowspan=3, sticky="ns")
+        ttk.Separator(master=self, orient='horizontal').grid(
+            row=1, column=0, sticky="ew", columnspan=3)
 
         # STATIC LABELS AND ELEMENTS
-        tk.Label(master=upper_left_frame, relief=tk.GROOVE, borderwidth=2,text="Sprzedaż", height=2, font=self.main_font).grid(row=0, column=1, sticky="nsew")
-        tk.Label(master=upper_left_frame, relief=tk.GROOVE, borderwidth=2,text="Opis", height=2, font=self.main_font).grid(row=0, column=2, sticky="nsew")
-        tk.Label(master=upper_left_frame, relief=tk.GROOVE, borderwidth=2,text="Godzina", height=2, font=self.main_font).grid(row=0, column=3, sticky="nsew")
-        tk.Label(master=lower_left_frame, relief=tk.GROOVE, borderwidth=2,text="Wartość", height=2, font=self.main_font).grid(row=0, column=1, sticky="nsew")
-        tk.Label(master=lower_left_frame, relief=tk.GROOVE, borderwidth=2,text="Operacja", height=2, font=self.main_font).grid(row=0, column=2, sticky="nsew")
-        tk.Label(master=lower_left_frame, relief=tk.GROOVE, borderwidth=2,text="Komentarz", height=2, font=self.main_font).grid(row=0, column=3, sticky="nsew")
-        tk.Label(master=lower_left_frame, relief=tk.GROOVE, borderwidth=2,text="Godzina", height=2, font=self.main_font).grid(row=0, column=4, sticky="nsew")
-        tk.Label(master=upper_center_frame, text="Utarg", font=self.main_font).grid(row=0, column=0, sticky="sw")
-        tk.Label(master=upper_center_frame, text="W miesiącu", font=self.main_font).grid(row=2, column=0, sticky="sw")
-        tk.Label(master=lower_center_frame, text="W kasie", font=self.main_font).grid(row=0, column=0, sticky="sw")
-        tk.Label(master=upper_right_frame, text="Sprzedaż", font=self.main_font).grid(row=0, column=0, sticky="sw", padx=10)
-        tk.Label(master=upper_right_frame, text="Opis", font=self.main_font).grid(row=2, column=0, sticky="sw", padx=10)
-        tk.Label(master=lower_right_frame, text="Wartość", font=self.main_font).grid(row=0, column=0, columnspan=3, sticky="sw", padx=10)
-        tk.Label(master=lower_right_frame, text="Komentarz", font=self.main_font).grid(row=3, column=0, columnspan=3, sticky="sw", padx=10)
+        tk.Label(master=upper_left_frame, relief=tk.GROOVE, borderwidth=2, text="Sprzedaż",
+                 height=2, font=self.main_font).grid(row=0, column=1, sticky="nsew")
+        tk.Label(master=upper_left_frame, relief=tk.GROOVE, borderwidth=2, text="Opis",
+                 height=2, font=self.main_font).grid(row=0, column=2, sticky="nsew")
+        tk.Label(master=upper_left_frame, relief=tk.GROOVE, borderwidth=2, text="Godzina",
+                 height=2, font=self.main_font).grid(row=0, column=3, sticky="nsew")
+        tk.Label(master=lower_left_frame, relief=tk.GROOVE, borderwidth=2, text="Wartość",
+                 height=2, font=self.main_font).grid(row=0, column=1, sticky="nsew")
+        tk.Label(master=lower_left_frame, relief=tk.GROOVE, borderwidth=2, text="Operacja",
+                 height=2, font=self.main_font).grid(row=0, column=2, sticky="nsew")
+        tk.Label(master=lower_left_frame, relief=tk.GROOVE, borderwidth=2, text="Komentarz",
+                 height=2, font=self.main_font).grid(row=0, column=3, sticky="nsew")
+        tk.Label(master=lower_left_frame, relief=tk.GROOVE, borderwidth=2, text="Godzina",
+                 height=2, font=self.main_font).grid(row=0, column=4, sticky="nsew")
+        tk.Label(master=upper_center_frame, text="Utarg",
+                 font=self.main_font).grid(row=0, column=0, sticky="sw")
+        tk.Label(master=upper_center_frame, text="W miesiącu",
+                 font=self.main_font).grid(row=2, column=0, sticky="sw")
+        tk.Label(master=lower_center_frame, text="W kasie",
+                 font=self.main_font).grid(row=0, column=0, sticky="sw")
+        tk.Label(master=upper_right_frame, text="Sprzedaż", font=self.main_font).grid(
+            row=0, column=0, sticky="sw", padx=10)
+        tk.Label(master=upper_right_frame, text="Opis", font=self.main_font).grid(
+            row=2, column=0, sticky="sw", padx=10)
+        tk.Label(master=lower_right_frame, text="Wartość", font=self.main_font).grid(
+            row=0, column=0, columnspan=3, sticky="sw", padx=10)
+        tk.Label(master=lower_right_frame, text="Komentarz", font=self.main_font).grid(
+            row=3, column=0, columnspan=3, sticky="sw", padx=10)
 
         if self.date != self.today:
             widget_state = tk.DISABLED
         else:
             widget_state = tk.NORMAL
-            
+
         # LISTS AND SCROLLS
-        self.upper_vertical_scroll = tk.Scrollbar(upper_left_frame, orient=tk.VERTICAL)
-        self.upper_vertical_scroll.grid(row=0, column=4, rowspan=2, sticky="ns")
-        self.upper_horizontal_scroll = tk.Scrollbar(upper_left_frame, orient=tk.HORIZONTAL)
+        self.upper_vertical_scroll = tk.Scrollbar(
+            upper_left_frame, orient=tk.VERTICAL)
+        self.upper_vertical_scroll.grid(
+            row=0, column=4, rowspan=2, sticky="ns")
+        self.upper_horizontal_scroll = tk.Scrollbar(
+            upper_left_frame, orient=tk.HORIZONTAL)
         self.upper_horizontal_scroll.grid(row=2, column=2, sticky="ew")
         self.upper_delete_list = tk.Listbox(upper_left_frame, height=14, width=3, font=self.main_font,
                                             yscrollcommand=self.upper_vertical_scroll.set,
@@ -102,14 +126,19 @@ class App(tk.Tk):
         self.sale_list = tk.Listbox(upper_left_frame, height=14, width=10, relief=tk.GROOVE, borderwidth=2,
                                     yscrollcommand=self.upper_vertical_scroll.set, font=self.main_font)
         self.sale_list.grid(row=1, column=1, sticky="NSEW", )
-        self.description_list = tk.Listbox(upper_left_frame, height=14, width=40, relief=tk.GROOVE, borderwidth=2,yscrollcommand=self.upper_vertical_scroll.set, xscrollcommand=self.upper_horizontal_scroll.set, font=self.main_font)
+        self.description_list = tk.Listbox(upper_left_frame, height=14, width=40, relief=tk.GROOVE, borderwidth=2,
+                                           yscrollcommand=self.upper_vertical_scroll.set, xscrollcommand=self.upper_horizontal_scroll.set, font=self.main_font)
         self.description_list.grid(row=1, column=2, sticky="NSEW")
-        self.upper_hour_list = tk.Listbox(upper_left_frame, height=14, width=10, relief=tk.GROOVE, borderwidth=2, yscrollcommand=self.upper_vertical_scroll.set, font=self.main_font)
+        self.upper_hour_list = tk.Listbox(upper_left_frame, height=14, width=10, relief=tk.GROOVE,
+                                          borderwidth=2, yscrollcommand=self.upper_vertical_scroll.set, font=self.main_font)
         self.upper_hour_list.grid(row=1, column=3, sticky="NSEW")
 
-        self.lower_vertical_scroll = tk.Scrollbar(lower_left_frame, orient=tk.VERTICAL)
-        self.lower_vertical_scroll.grid(row=0, column=5, rowspan=2, sticky="ns")
-        self.lower_horizontal_scroll = tk.Scrollbar(lower_left_frame, orient=tk.HORIZONTAL)
+        self.lower_vertical_scroll = tk.Scrollbar(
+            lower_left_frame, orient=tk.VERTICAL)
+        self.lower_vertical_scroll.grid(
+            row=0, column=5, rowspan=2, sticky="ns")
+        self.lower_horizontal_scroll = tk.Scrollbar(
+            lower_left_frame, orient=tk.HORIZONTAL)
         self.lower_horizontal_scroll.grid(row=2, column=3, sticky="ew")
         self.lower_delete_list = tk.Listbox(lower_left_frame, height=10, width=3, borderwidth=2, font=self.main_font,
                                             yscrollcommand=self.upper_vertical_scroll.set,
@@ -117,71 +146,97 @@ class App(tk.Tk):
                                             highlightthickness=0, selectbackground="white",
                                             selectforeground="white", state=widget_state)
         self.lower_delete_list.grid(row=1, column=0, sticky="NSEW")
-        self.value_list = tk.Listbox(lower_left_frame, height=10, width=10, relief=tk.GROOVE, borderwidth=2, yscrollcommand=self.lower_vertical_scroll.set, font=self.main_font)
+        self.value_list = tk.Listbox(lower_left_frame, height=10, width=10, relief=tk.GROOVE,
+                                     borderwidth=2, yscrollcommand=self.lower_vertical_scroll.set, font=self.main_font)
         self.value_list.grid(row=1, column=1, sticky="NSEW", )
-        self.operation_list = tk.Listbox(lower_left_frame, height=10, width=10, relief=tk.GROOVE, borderwidth=2, yscrollcommand=self.lower_vertical_scroll.set, font=self.main_font)
+        self.operation_list = tk.Listbox(lower_left_frame, height=10, width=10, relief=tk.GROOVE,
+                                         borderwidth=2, yscrollcommand=self.lower_vertical_scroll.set, font=self.main_font)
         self.operation_list.grid(row=1, column=2, sticky="NSEW")
-        self.comment_list = tk.Listbox(lower_left_frame, height=10, width=29, relief=tk.GROOVE, borderwidth=2, yscrollcommand=self.lower_vertical_scroll.set, xscrollcommand=self.lower_horizontal_scroll.set, font=self.main_font)
+        self.comment_list = tk.Listbox(lower_left_frame, height=10, width=29, relief=tk.GROOVE, borderwidth=2,
+                                       yscrollcommand=self.lower_vertical_scroll.set, xscrollcommand=self.lower_horizontal_scroll.set, font=self.main_font)
         self.comment_list.grid(row=1, column=3, sticky="NSEW")
-        self.lower_hour_list = tk.Listbox(lower_left_frame, height=12, width=10, relief=tk.GROOVE, borderwidth=2, yscrollcommand=self.lower_vertical_scroll.set, font=self.main_font)
+        self.lower_hour_list = tk.Listbox(lower_left_frame, height=12, width=10, relief=tk.GROOVE,
+                                          borderwidth=2, yscrollcommand=self.lower_vertical_scroll.set, font=self.main_font)
         self.lower_hour_list.grid(row=1, column=4, sticky="NSEW")
 
         # DYNAMIC LABELS AND ENTRIES
         date_parts = self.date.split('-')
         date_to_display = f"{date_parts[2]}.{date_parts[1]}.{date_parts[0]}"
 
-        self.current_date_lbl = tk.Label(master=self, text=date_to_display, relief=tk.RIDGE, borderwidth=2, font=self.main_font, width=15, height=2)
+        self.current_date_lbl = tk.Label(
+            master=self, text=date_to_display, relief=tk.RIDGE, borderwidth=2, font=self.main_font, width=15, height=2)
         self.current_date_lbl.place(relx=0.879, rely=0.0444, anchor=tk.CENTER)
-        self.daily_income_lbl = tk.Label(master=upper_center_frame, text="", relief=tk.RIDGE, borderwidth=2, width=13, font=self.main_font)
+        self.daily_income_lbl = tk.Label(
+            master=upper_center_frame, text="", relief=tk.RIDGE, borderwidth=2, width=13, font=self.main_font)
         self.daily_income_lbl.grid(row=1, column=0, sticky="sw")
 
-        self.in_month_lbl = tk.Label(master=upper_center_frame, text="", relief=tk.RIDGE, borderwidth=2, width=13, font=self.main_font)
+        self.in_month_lbl = tk.Label(master=upper_center_frame, text="",
+                                     relief=tk.RIDGE, borderwidth=2, width=13, font=self.main_font)
         self.in_month_lbl.grid(row=3, column=0, sticky="sw")
 
-        self.money_box_lbl = tk.Label(master=lower_center_frame, text="", relief=tk.RIDGE, borderwidth=2, width=13, font=self.main_font)
+        self.money_box_lbl = tk.Label(master=lower_center_frame, text="",
+                                      relief=tk.RIDGE, borderwidth=2, width=13, font=self.main_font)
         self.money_box_lbl.grid(row=1, column=0, sticky="sw")
 
-        self.sale_entry = tk.Spinbox(master=upper_right_frame, width=10, from_=0, to=100000, increment=0.01, font=self.main_font, state=widget_state)
+        self.sale_entry = tk.Spinbox(master=upper_right_frame, width=10, from_=0,
+                                     to=100000, increment=0.01, font=self.main_font, state=widget_state)
         self.sale_entry.grid(row=1, column=0, sticky="sw", padx=10)
 
-        self.description_entry = tk.Entry(master=upper_right_frame, width=35, font=self.main_font, state=widget_state)
+        self.description_entry = tk.Entry(
+            master=upper_right_frame, width=35, font=self.main_font, state=widget_state)
         self.description_entry.grid(row=3, column=0, sticky="sw", padx=10)
 
-        self.upper_insert_button = tk.Button(master=upper_right_frame, text="Wprowadź", command=self.submit_upper_form, font=self.main_font, state=widget_state)
+        self.upper_insert_button = tk.Button(
+            master=upper_right_frame, text="Wprowadź", command=self.submit_upper_form, font=self.main_font, state=widget_state)
         self.upper_insert_button.grid(row=4, column=0, sticky="sw", padx=10)
 
-        self.value_entry = tk.Spinbox(master=lower_right_frame, width=10, from_=0, to=100000, increment=0.01, font=self.main_font, state=widget_state)
-        self.value_entry.grid(row=1, column=0, columnspan=3, sticky="sw", padx=10)
+        self.value_entry = tk.Spinbox(master=lower_right_frame, width=10, from_=0,
+                                      to=100000, increment=0.01, font=self.main_font, state=widget_state)
+        self.value_entry.grid(
+            row=1, column=0, columnspan=3, sticky="sw", padx=10)
 
         self.operation = tk.StringVar()
         self.operation.set('KP')
-        self.left_radio = tk.Radiobutton(master=lower_right_frame, text='KP', variable=self.operation, value='KP', font=self.main_font, state=widget_state)
+        self.left_radio = tk.Radiobutton(master=lower_right_frame, text='KP',
+                                         variable=self.operation, value='KP', font=self.main_font, state=widget_state)
         self.left_radio.grid(row=2, column=0, sticky="sw", padx=10, pady=10)
 
-        self.right_radio = tk.Radiobutton(master=lower_right_frame, text='KW', variable=self.operation, value='KW', font=self.main_font, state=widget_state)
+        self.right_radio = tk.Radiobutton(master=lower_right_frame, text='KW',
+                                          variable=self.operation, value='KW', font=self.main_font, state=widget_state)
         self.right_radio.grid(row=2, column=1, sticky="sw", padx=10, pady=10)
 
-        self.comment_entry = tk.Entry(master=lower_right_frame, width=35, font=self.main_font, state=widget_state)
-        self.comment_entry.grid(row=4, column=0, columnspan=3, sticky="sw", padx=10)
+        self.comment_entry = tk.Entry(
+            master=lower_right_frame, width=35, font=self.main_font, state=widget_state)
+        self.comment_entry.grid(
+            row=4, column=0, columnspan=3, sticky="sw", padx=10)
 
-        self.lower_insert_button = tk.Button(master=lower_right_frame, text="Wprowadź", command=self.submit_lower_form, font=self.main_font, state=widget_state)
-        self.lower_insert_button.grid(row=5, column=0, columnspan=3, sticky="sw", padx=10)
+        self.lower_insert_button = tk.Button(
+            master=lower_right_frame, text="Wprowadź", command=self.submit_lower_form, font=self.main_font, state=widget_state)
+        self.lower_insert_button.grid(
+            row=5, column=0, columnspan=3, sticky="sw", padx=10)
 
         calendar_icon = tk.PhotoImage(file="calendar-icon.png")
-        self.calendar_button = tk.Button(buttons_frame, image=calendar_icon, command=self.pick_date)
-        self.calendar_button.grid(row=0, column=0, padx=4, pady=4, ipadx=2, ipady=2, sticky="swne")
+        self.calendar_button = tk.Button(
+            buttons_frame, image=calendar_icon, command=self.pick_date)
+        self.calendar_button.grid(
+            row=0, column=0, padx=4, pady=4, ipadx=2, ipady=2, sticky="swne")
 
         excel_icon = tk.PhotoImage(file="excel-icon.png")
-        self.excel_button = tk.Button(buttons_frame, image=excel_icon, command=self.export_to_excel)
-        self.excel_button.grid(row=1, column=0, padx=4, pady=4, ipadx=2, ipady=2, sticky="swne")
+        self.excel_button = tk.Button(
+            buttons_frame, image=excel_icon, command=self.export_to_excel)
+        self.excel_button.grid(row=1, column=0, padx=4,
+                               pady=4, ipadx=2, ipady=2, sticky="swne")
 
         # DELETE CONFIGURATION
-        self.upper_delete_list.bind("<ButtonRelease-1>", self.delete_upper_record)
-        self.lower_delete_list.bind("<ButtonRelease-1>", self.delete_lower_record)
-        
+        self.upper_delete_list.bind(
+            "<ButtonRelease-1>", self.delete_upper_record)
+        self.lower_delete_list.bind(
+            "<ButtonRelease-1>", self.delete_lower_record)
+
         # SCROLL CONFIGURATIONS
         self.upper_vertical_scroll.config(command=self.upper_scroll_yview)
-        self.upper_horizontal_scroll.config(command=self.description_list.xview)
+        self.upper_horizontal_scroll.config(
+            command=self.description_list.xview)
         self.lower_vertical_scroll.config(command=self.lower_scroll_yview)
         self.lower_horizontal_scroll.config(command=self.comment_list.xview)
 
@@ -241,11 +296,13 @@ class App(tk.Tk):
             if sale <= 0:
                 raise ValueError
         except ValueError:
-            self.show_message("Błąd sprzedaży", "Wprowadzono nieprawidłową wartość.")
+            self.show_message("Błąd sprzedaży",
+                              "Wprowadzono nieprawidłową wartość.")
             return
         else:
             if len(description) > 100:
-                self.show_message("Błąd sprzedaży", "Wprowadzony opis jest zbyt długi.")
+                self.show_message("Błąd sprzedaży",
+                                  "Wprowadzony opis jest zbyt długi.")
                 return
             insert_index = self.sale_list.size()
             self.upper_delete_list.insert(insert_index, "❌")
@@ -264,7 +321,6 @@ class App(tk.Tk):
             self.update_daily_income()
             self.update_in_month()
             self.update_money_box()
-        
 
     def submit_lower_form(self):
         # UPDATE PROGRAM
@@ -274,17 +330,20 @@ class App(tk.Tk):
             comment = self.comment_entry.get()
             time = datetime.now().strftime("%H:%M")
             if value <= 0:
-                self.show_message("Błąd operacji", "Wprowadzono nieprawidłową wartość.")
+                self.show_message(
+                    "Błąd operacji", "Wprowadzono nieprawidłową wartość.")
                 raise ValueError
             if len(comment) > 100:
-                self.show_message("Błąd operacji", "Wprowadzony komentarz jest zbyt długi.")
+                self.show_message(
+                    "Błąd operacji", "Wprowadzony komentarz jest zbyt długi.")
                 raise ValueError
         except ValueError:
             return
         else:
             if operation == "KW":
                 if value > self.money_box:
-                    self.show_message("Błąd operacji", "Za mało środków w kasie")
+                    self.show_message(
+                        "Błąd operacji", "Za mało środków w kasie")
                     return
                 value *= -1
 
@@ -425,13 +484,16 @@ class App(tk.Tk):
 
         year, month, day = str(self.date).split('-')
 
-        calendar = Calendar(date_window, year=int(year), month=int(month), day=int(day), selectmode='day', date_pattern='y-mm-dd', font=self.main_font, mindate=min_date, maxdate=max_date)
+        calendar = Calendar(date_window, year=int(year), month=int(month), day=int(
+            day), selectmode='day', date_pattern='y-mm-dd', font=self.main_font, mindate=min_date, maxdate=max_date)
         calendar.place(relx=0.5, rely=0.38, anchor=tk.CENTER)
 
-        submit_button = tk.Button(date_window, text="Przejdź", font=self.main_font, width=10, command=lambda: self.change_date(calendar.get_date()))
+        submit_button = tk.Button(date_window, text="Przejdź", font=self.main_font,
+                                  width=10, command=lambda: self.change_date(calendar.get_date()))
         submit_button.place(relx=0.5, rely=0.79, anchor=tk.CENTER)
 
-        today_button = tk.Button(date_window, text="Dzisiaj", font=self.main_font, width=10, command=lambda: self.change_date(self.today))
+        today_button = tk.Button(date_window, text="Dzisiaj", font=self.main_font,
+                                 width=10, command=lambda: self.change_date(self.today))
         today_button.place(relx=0.5, rely=0.92, anchor=tk.CENTER)
 
         date_window.deiconify()
@@ -448,8 +510,9 @@ class App(tk.Tk):
         App(date, x, y)
 
     def export_to_excel(self):
-        
-        file_path = filedialog.asksaveasfilename(defaultextension=".xlsx", filetypes=[(".xlsx", "*.xlsx")], initialfile=self.date)
+
+        file_path = filedialog.asksaveasfilename(defaultextension=".xlsx", filetypes=[
+                                                 (".xlsx", "*.xlsx")], initialfile=self.date)
         if file_path:
             self.cursor.execute(f"""SELECT sale AS 'Sprzedaż', description AS 'Opis', time AS 'Godzina' FROM sales
                                     WHERE date = '{self.date}'""")
@@ -462,7 +525,7 @@ class App(tk.Tk):
             worksheet_data = workbook.add_worksheet('worksheet')
 
             headers_format = workbook.add_format(
-                {   
+                {
                     "bg_color": "#AFAFAF",
                     "border": 1,
                     "border_color": "#000000",
@@ -517,7 +580,7 @@ class App(tk.Tk):
             workbook.close()
 
     def enter_clicked(self, event):
-        
+
         if self.sale_entry.get() != '' and self.sale_entry.get() != '0.00':
             self.submit_upper_form()
         if self.value_entry.get() != '' and self.value_entry.get() != '0.00':
@@ -531,6 +594,7 @@ class App(tk.Tk):
             self.conn.close()
             self.destroy()
 
+
 if __name__ == "__main__":
     executable_path = sys.argv[0]
     executable_directory = os.path.abspath(os.path.dirname(executable_path))
@@ -542,5 +606,3 @@ if __name__ == "__main__":
 
     date = str(dt.today())
     app = App(date, x, y)
-
-
